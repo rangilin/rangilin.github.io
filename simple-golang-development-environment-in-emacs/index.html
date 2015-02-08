@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Rangi Lin's blog</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div id="content">
+      
+
+<div>
+  <h1>Simple Golang Development Environment in Emacs</h1>
+  <div><p>最近心血來潮，花了幾天的時間<a href="https://github.com/rangilin/go-tour-exercises">把 A Tour of Go 的練習題做完了</a>。主要開發的環境是 Emacs，因此這次想要分享一些研究時發現的資料，希望能給其他有需要的人一點幫助。標題下的 Simple 一詞是因為我的設定並無考慮到比較複雜的開發環境需要，目的僅是為了能在 Emacs 寫 Go。</p>
+
+<h2>
+<a id="user-content-go-mode" class="anchor" href="#go-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>go-mode</h2>
+
+<p>Go 的社群裡有許多人幫各種開發工具寫了官方的 plugin，Emacs 當然也不例外。<code>go-mode</code> 是 <a href="http://golang.org/misc/emacs/">Go 官方的 major mode</a>，裡面除了基本的語法上色外，還整合了一些 Go 的官方工具，簡單好上手。Go 所發佈的檔案裡，就有直接附上了這些檔案。假設安裝在 <code>/usr/local/go</code>，那麼 <code>go-mode</code> 的檔案位置就在 <code>/usr/local/go/misc/emacs</code>。</p>
+
+<pre><code>(add-to-list 'load-path "/usr/local/go/misc/emacs/go-mode-load.el" t)
+(require 'go-mode-load)
+</code></pre>
+
+<p>這樣子設定，Emacs 只要開啟 go 檔案就會進入 <code>go-mode</code> 了。</p>
+
+<p>除了官方的檔案之外，Emacs 的 Package Archive 像 <a href="http://marmalade-repo.org/packages/go-mode">Marmalade</a> 或 <a href="http://melpa.milkbox.net/#/go-mode">Melpa</a> 也都提供安裝 <code>go-mode</code> 的檔案。這些地方的更新會比等 Go 新版本發佈的檔案來的快，因此我個人是從 Melpa 安裝的。</p>
+
+<h3>
+<a id="user-content-godef" class="anchor" href="#godef" aria-hidden="true"><span class="octicon octicon-link"></span></a>godef</h3>
+
+<p><code>go-mode</code> 目前有一個外部的 dependency : <a href="http://godoc.org/code.google.com/p/rog-go/exp/cmd/godef">godef</a>，主要是為了顯示 Document，還有方便直接找尋 Go 的 source code。安裝的方式是使用 go command 。</p>
+
+<pre><code>go get code.google.com/p/rog-go/exp/cmd/godef
+</code></pre>
+
+<h3>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h3>
+
+<p>這邊簡單的介紹一些 <code>go-mode</code> 的功能 :</p>
+
+<ul>
+<li>
+<code>c-c c-a</code> : <code>go-import-add</code>，自動 import 所選擇的 package，裡面列出 Go 預設和 workspace 內有的 package。</li>
+<li>
+<code>go-remove-unused-imports</code> : 移除無用的 import。</li>
+<li>
+<code>c-c c-j</code> : <code>godef-jump</code>，自動跳到游標所在位置程式的原始碼。</li>
+<li>
+<code>c-c c-d</code> : <code>godef-describe</code>，在 minibuffer 顯示該程式碼的宣告。</li>
+</ul>
+
+<h3>
+<a id="user-content-gofmt" class="anchor" href="#gofmt" aria-hidden="true"><span class="octicon octicon-link"></span></a>gofmt</h3>
+
+<p>Go 解決 convention 問題的方式是寫了一個 <a href="golang.org/cmd/gofmt/">gofmt</a> 工具來做自動排版，並建議大家都用它。因此當然也需要將它納入環境中。目前最常見的方式是讓 <code>gofmt</code> 在儲存時自動執行。</p>
+
+<pre><code>(add-hook 'before-save-hook 'gofmt-before-save)
+</code></pre>
+
+<p>此外，由於 Go 是建議使用 tab 字元縮排，因此記得在 <code>go-mode-hook</code> 裡設定 <code>indent-tabs-mode</code>。</p>
+
+<h2>
+<a id="user-content-flycheck" class="anchor" href="#flycheck" aria-hidden="true"><span class="octicon octicon-link"></span></a>flycheck</h2>
+
+<p><a href="http://flycheck.readthedocs.org/en/latest/">Flycheck</a> 是 Emacs 即時語法檢查的 plugin 之一，它<a href="http://flycheck.readthedocs.org/en/latest/manual/languages.html#go">也有支援 Go</a>。並且使用像 <code>gofmt</code>，<code>golint</code>等工具做為檢查的依據，非常推薦。</p>
+
+<p><a href="flycheck-go.png" target="_blank"><img src="flycheck-go.png" alt="flycheck in go" style="max-width:100%;"></a></p>
+
+<h2>
+<a id="user-content-goroot-gopath-in-terminal" class="anchor" href="#goroot-gopath-in-terminal" aria-hidden="true"><span class="octicon octicon-link"></span></a>GOROOT, GOPATH in terminal</h2>
+
+<p>由於我習慣在 Emacs 內使用 terminal，因此同樣地也希望我能在 <code>term-mode</code> 下正常讀取 GO 的環境變數。</p>
+
+<p>由於 <code>GOPATH</code> 需要指向 Go 的 <a href="http://golang.org/doc/code.html#Workspaces">Workspace</a>，以方便開發和使用官方的 <a href="http://golang.org/cmd/go/">go command</a>。但就我所知，目前官方並沒有方便獨立各個開發環境的方案；而<a href="https://www.google.com.tw/search?q=goenv">一堆人寫自己的 goenv file</a>和較複雜的 <a href="https://github.com/moovweb/gvm">GVM</a> 都讓我不知道如何是好。反正只是為了寫練習題，就<strong>先暫時不解決這問題</strong>，一律使用同一個 workspace。</p>
+
+<p>而將環境參數帶入 terminal 的方式，我個人是使用 <a href="https://github.com/purcell/exec-path-from-shell">exec-path-from-shell</a> 來將環境參數自動帶到 <code>term-mode</code>、<code>shell-mode</code>、<code>eshell-mode</code>。</p>
+
+<pre><code>(setq-default exec-path-from-shell-variables '("PATH" "MANPATH" "GOROOT" "GOPATH"))
+(exec-path-from-shell-initialize)
+</code></pre>
+
+<h2>
+<a id="user-content-conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+
+<p>到這邊為止，就是我主要的 Go 開發環境。雖然只有很基本的東西，不過已經足夠滿足我寫完練習題的需求。其他像是用 <a href="https://github.com/nsf/gocode">gocode</a> 做自動完成；使用 <a href="https://github.com/capitaomorte/yasnippet">YASnippet</a> 設定常用的 snippets；使用 <a href="https://github.com/syohex/emacs-go-eldoc">go-eldoc</a> 讓 eldoc 也能顯示 go 的宣告... 等等。這些都是可以進一步再去加強的地方。</p>
+
+<p>希望這篇介紹可以讓需要的人對 Emacs 裡 Go 的開發環境有初步的認識。</p>
+</div>
+</div>
+
+    </div>
+  </body>
+</html>
