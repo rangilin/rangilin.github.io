@@ -15,7 +15,7 @@
       
 
 <div>
-  <h1>Tree structure in SQL</h1>
+  <a href="http://blog.rangilin.idv.tw/tree-structure-in-sql/"><h1>Tree structure in SQL</h1></a>
   <div><p>開發應用程式時，樹狀結構的資料其實很常見，只是當需要將這些資料用 SQL 資料庫儲存下來時，就會發現問題忽然複雜了許多；能保存資料間的階層關連性還不夠，還必須考慮到各類查詢和修改的效能。前陣子讀了 <a href="https://pragprog.com/book/bksqla/sql-antipatterns">SQL Antipatterns: Avoiding the Pitfalls of Database Programming</a>；在這本書裡面，作者就儲存樹狀結構的幾種 pattern 做了介紹，並比較每個方式的優缺點。我覺得這是很實用的技巧，所以這篇文章就以書中的資料為主，來介紹不同的實作方式。</p>
 
 <p>以下的範例都是以書中的例子改寫成 MySQL 的程式 (不包括 common table expression，因為 MySQL 不支援)，並且附上建立資料的 query，方便自己實驗時使用。例圖部份是以書中的圖修改的。</p>
