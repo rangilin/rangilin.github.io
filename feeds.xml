@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rangi Lin's Blog</title>
+    <description></description>
+    <link>http://localhost/</link>
+    
+      
+    
+      
+        <item>
+          <title>Tree structure in SQL</title>
+          <description>開發應用程式時，樹狀結構的資料其實很常見，只是當需要將這些資料用 SQL 資料庫儲存下來時，就會發現問題忽然複雜了許多；能保存資料間的階層關連性還不夠，還必須考慮到各類查詢和修改的效能。前陣子讀了 &lt;a href=&#34;https://pragprog.com/book/bksqla/sql-antipatterns&#34;&gt;SQL Antipatterns: Avoiding the Pitfalls of Database Programming&lt;/a&gt;；在這本書裡面，作者就儲存樹狀結構的幾種 pattern 做了介紹，並比較每個方式的優缺點。我覺得這是很實用的技巧，所以這篇文章就以書中的資料為主，來介紹不同的實作方式。 ...</description>
+          <pubDate>Fri, 12 Sep 2014 00:00:00 UTC</pubDate>
+          <link>http://localhost/tree-structure-in-sql/</link>
+          <guid isPermaLink="true">http://localhost/tree-structure-in-sql/</guid>
+        </item>
+      
+    
+      
+        <item>
+          <title>Dependency Injection</title>
+          <description>在任何的程式裡面，上至模組，下至函式，每個元素為了達成自己的工作，或多或少都會依賴其他的元素來完成不是自己責任的工作；也因此不同的元素之間存在著一種相依性，這種彼此依賴的程度多寡，決定了一個程式幾個重要的面向：如可測試性、可維護性。隨著程式的規模和複雜度增加，相依性越高的程式碼，問題也會更加明顯。 ...</description>
+          <pubDate>Fri, 29 Aug 2014 00:00:00 UTC</pubDate>
+          <link>http://localhost/dependency-injection/</link>
+          <guid isPermaLink="true">http://localhost/dependency-injection/</guid>
+        </item>
+      
+    
+      
+        <item>
+          <title>Simple Golang Development Environment in Emacs</title>
+          <description>最近心血來潮，花了幾天的時間&lt;a href=&#34;https://github.com/rangilin/go-tour-exercises&#34;&gt;把 A Tour of Go 的練習題做完了&lt;/a&gt;。主要開發的環境是 Emacs，因此這次想要分享一些研究時發現的資料，希望能給其他有需要的人一點幫助。標題下的 Simple 一詞是因為我的設定並無考慮到比較複雜的開發環境需要，目的僅是為了能在 Emacs 寫 Go。 ...</description>
+          <pubDate>Tue, 18 Mar 2014 00:00:00 UTC</pubDate>
+          <link>http://localhost/simple-golang-development-environment-in-emacs/</link>
+          <guid isPermaLink="true">http://localhost/simple-golang-development-environment-in-emacs/</guid>
+        </item>
+      
+    
+      
+        <item>
+          <title>Workaround Emacs view-lossage may display password</title>
+          <description>Emacs 的 &lt;code&gt;view-lossage&lt;/code&gt; 功能，基本上是一個內建的 key logger，它會紀錄並顯示最近 300 次按鍵紀錄。這個功能多半被使用者拿來在錄製影片、或是被人問到功能怎麼用的時候，顯示當下的按鍵紀錄給人看。 ...</description>
+          <pubDate>Sun, 09 Mar 2014 00:00:00 UTC</pubDate>
+          <link>http://localhost/workaround-emacs-view-lossage-may-display-password/</link>
+          <guid isPermaLink="true">http://localhost/workaround-emacs-view-lossage-may-display-password/</guid>
+        </item>
+      
+    
+  </channel>
+</rss>
