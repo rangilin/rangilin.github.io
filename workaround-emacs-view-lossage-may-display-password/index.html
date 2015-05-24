@@ -56,7 +56,7 @@
 <p>由於我使用 <code>term-mode</code> 的次數頗頻繁，也很常透過 SSH 連到其他 server 上，再加上我幾乎沒有在用這個功能。因此我找出了一個方式能讓 <code>view-lossage</code> 比較不容易顯示出重要資訊。</p>
 
 <div class="highlight highlight-elisp"><pre>(defadvice term-send-raw (after clear-recorded-key activate)
-  (<span class="pl-k">if</span> (string= (kbd <span class="pl-s1"><span class="pl-pds">"</span>RET<span class="pl-pds">"</span></span>) (this-command-keys))
+  (<span class="pl-k">if</span> (string= (kbd <span class="pl-s"><span class="pl-pds">"</span>RET<span class="pl-pds">"</span></span>) (this-command-keys))
     (clear-this-command-keys)))</pre></div>
 
 <p>上面這段程式是對 <code>term-mode</code> 送出按鍵資訊的函式加了一個 after advice : 如果按下的鍵是 Enter 時，就會順便清除 <code>view-lossage</code> 的內容。</p>

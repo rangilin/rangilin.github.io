@@ -6,6 +6,16 @@
     <link>http://blog.rangilin.idv.tw/</link>
     
       
+        <item>
+          <title>Go - database/sql package 簡介</title>
+          <description>用 Go 寫程式，要對 SQL 資料庫存取時，就需要依賴 &lt;code&gt;database/sql&lt;/code&gt; 這個 package。這篇文章將針對這個 package 裡的 API 做介紹，順便加深自己的印象。 ...</description>
+          <pubDate>Sat, 23 May 2015 00:00:00 UTC</pubDate>
+          <link>http://blog.rangilin.idv.tw/go-database-sql-package/</link>
+          <guid isPermaLink="true">http://blog.rangilin.idv.tw/go-database-sql-package/</guid>
+        </item>
+      
+    
+      
     
       
         <item>
