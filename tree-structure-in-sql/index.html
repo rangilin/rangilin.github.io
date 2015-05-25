@@ -111,8 +111,8 @@
 7           6           Kukla   加上去後就好了。
 </code></pre>
 
-<h4>
-<a id="user-content-查詢" class="anchor" href="#%E6%9F%A5%E8%A9%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>查詢</h4>
+<h3>
+<a id="user-content-查詢" class="anchor" href="#%E6%9F%A5%E8%A9%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>查詢</h3>
 
 <p>我們可以用 Join 靠一次查詢拿到下一階的資料</p>
 
@@ -152,8 +152,8 @@ SELECT * FROM comment_tree WHERE bug_id = 1234 WHERE commend_id = 1;
 
 <p>除此之外，一口氣將所有資料讀出來，組成樹狀資料結構後放在 cache 提供查詢也是一種妥協的方式。只是這個方法在資料量大，或者是資料常修改次數高的時候能帶來的效益也有限。</p>
 
-<h4>
-<a id="user-content-修改" class="anchor" href="#%E4%BF%AE%E6%94%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改</h4>
+<h3>
+<a id="user-content-修改" class="anchor" href="#%E4%BF%AE%E6%94%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改</h3>
 
 <p>雖然查詢很糟，可是修改樹狀結構的時候倒是十分容易。</p>
 
@@ -173,8 +173,8 @@ SELECT * FROM comment_tree WHERE bug_id = 1234 WHERE commend_id = 1;
 <pre><code>DELETE FROM comments WHERE comment_id = 4;
 </code></pre>
 
-<h4>
-<a id="user-content-小結" class="anchor" href="#%E5%B0%8F%E7%B5%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>小結</h4>
+<h3>
+<a id="user-content-小結" class="anchor" href="#%E5%B0%8F%E7%B5%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>小結</h3>
 
 <p>優點 :</p>
 
@@ -218,8 +218,8 @@ SELECT * FROM comment_tree WHERE bug_id = 1234 WHERE commend_id = 1;
 7           1/4/6/7/    Kukla   加上去後就好了。
 </code></pre>
 
-<h4>
-<a id="user-content-查詢-1" class="anchor" href="#%E6%9F%A5%E8%A9%A2-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>查詢</h4>
+<h3>
+<a id="user-content-查詢-1" class="anchor" href="#%E6%9F%A5%E8%A9%A2-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>查詢</h3>
 
 <p>靠著 <code>path</code> 的資料，我們可以很輕易地查詢子樹狀結構：</p>
 
@@ -251,8 +251,8 @@ SELECT * FROM comment_tree WHERE bug_id = 1234 WHERE commend_id = 1;
 1           Ollie
 </code></pre>
 
-<h4>
-<a id="user-content-修改-1" class="anchor" href="#%E4%BF%AE%E6%94%B9-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改</h4>
+<h3>
+<a id="user-content-修改-1" class="anchor" href="#%E4%BF%AE%E6%94%B9-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改</h3>
 
 <p>為了要維護路徑，修改資料時就麻煩了。例如在 comment 7 下一層新增一筆評論：</p>
 
@@ -274,8 +274,8 @@ WHERE comment_id = LAST_INSERT_ID();
 <pre><code>DELETE FROM comments WHERE path LIKE '1/4/%';
 </code></pre>
 
-<h4>
-<a id="user-content-小結-1" class="anchor" href="#%E5%B0%8F%E7%B5%90-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>小結</h4>
+<h3>
+<a id="user-content-小結-1" class="anchor" href="#%E5%B0%8F%E7%B5%90-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>小結</h3>
 
 <p>優點 :</p>
 
@@ -378,8 +378,8 @@ INSERT INTO comments (nsleft, nsright, bug_id, author, comment_text) VALUES (8, 
 
 <p>不管新增或搬移，都牽涉到更新許多其他的節點的 <code>nsleft</code>, <code>nsright</code>，操作也較複雜，因此這兩種資料操作是 Nested Sets 的罩門所在。</p>
 
-<h4>
-<a id="user-content-小結-2" class="anchor" href="#%E5%B0%8F%E7%B5%90-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>小結</h4>
+<h3>
+<a id="user-content-小結-2" class="anchor" href="#%E5%B0%8F%E7%B5%90-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>小結</h3>
 
 <p>優點：</p>
 
@@ -456,8 +456,8 @@ ancestor    descendant
 
 <p><a href="ClosureTableTree.png" target="_blank"><img src="ClosureTableTree.png" alt="Closure Table Tree" style="max-width:100%;"></a></p>
 
-<h4>
-<a id="user-content-查詢-3" class="anchor" href="#%E6%9F%A5%E8%A9%A2-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>查詢</h4>
+<h3>
+<a id="user-content-查詢-3" class="anchor" href="#%E6%9F%A5%E8%A9%A2-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>查詢</h3>
 
 <p>查詢 comment 4 與其所有子節點:</p>
 
@@ -469,8 +469,8 @@ ancestor    descendant
 <pre><code>SELECT c.* FROM comments AS c JOIN comment_tree_paths AS t ON c.comment_id = t.ancestor WHERE t.descendant = 6;
 </code></pre>
 
-<h4>
-<a id="user-content-修改-3" class="anchor" href="#%E4%BF%AE%E6%94%B9-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改</h4>
+<h3>
+<a id="user-content-修改-3" class="anchor" href="#%E4%BF%AE%E6%94%B9-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改</h3>
 
 <p>新增一筆 comment 到 comment 7 下:</p>
 
@@ -529,8 +529,8 @@ WHERE super.descendant = 3 AND sub.ancestor = 6;
 
 <p>P.S : MySQL 似乎不允許 UPDATE/DELETE 時 reference 自己當條件，因此需要使用 derived table，看起來比較複雜一點。</p>
 
-<h4>
-<a id="user-content-closure-table-變型" class="anchor" href="#closure-table-%E8%AE%8A%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>Closure Table 變型</h4>
+<h3>
+<a id="user-content-closure-table-變型" class="anchor" href="#closure-table-%E8%AE%8A%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>Closure Table 變型</h3>
 
 <p>如果有需要，Closure Table 還能夠透過增加記錄 ancestor 到 descendant 的階層距離，來改善需要針對特定層級拿取資料的查詢</p>
 
@@ -557,8 +557,8 @@ WHERE super.descendant = 3 AND sub.ancestor = 6;
 <pre><code>SELECT c.* FROM comments AS c JOIN comment_tree_paths AS t ON c.comment_id = t.ancestor WHERE ancestor = 1 AND path_length &lt;= 3;
 </code></pre>
 
-<h4>
-<a id="user-content-小結-3" class="anchor" href="#%E5%B0%8F%E7%B5%90-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>小結</h4>
+<h3>
+<a id="user-content-小結-3" class="anchor" href="#%E5%B0%8F%E7%B5%90-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>小結</h3>
 
 <p>優點:</p>
 
