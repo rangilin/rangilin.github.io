@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+<title>Fix things twice  -  Rangi Lin's blog</title>
+
+    <meta name="viewport" content="width=device-width">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" title="Rangi Lin's blog" href="http://blog.rangilin.idv.tw/feeds.xml">
+    <script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+     ga('create', 'UA-63339693-1', 'auto');
+     ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+        <a id="menu-heading" href="http://blog.rangilin.idv.tw/" > Rangi Lin's blog </a> <small>my random thought about everything</small>
+        <ul>
+          <!-- <li><a href='http://blog.rangilin.idv.tw/about-me/'><i class="fa fa-smile-o"></i> About </a></li> -->
+          <li><a onclick="ga('send', 'pageview', '/feeds.xml')" href="/feeds.xml"><i class="fa fa-rss"></i> RSS </a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content">
+      
+<div>
+  <a href="http://blog.rangilin.idv.tw/fix-things-twice/"><h1>Fix things twice</h1></a>
+  <p> <i class="fa fa-calendar"></i> 2015-06-01 </p>
+  <div><p><a href="http://blog.fogcreek.com/four-million-to-one/">Four Million to One (Or How I Handle Trello Support)</a></p>
+
+<p>Trello 會員數已經超過四百萬人了，但 Trello Team 的客服只有一個人。四百萬個會員，每週平均的 e-mail support case 卻只有三百多件。雖然說產業、客群不同，比例也會有影響，但這個數字還是頗讓我驚訝。綜合文章內容和我的理解，整理出了一些感想：</p>
+
+<p><strong>1. 一個真的能解決問題的 help 網站</strong></p>
+
+<p>也許是借用了經營 StackExchange 的經驗，他們似乎很明白要如何滿足急著找出解答的使用者。也因此 <a href="http://help.trello.com/">http://help.trello.com/</a> 是我看過最容易使用的 help 網站。先根據主題分類，再列出解答疑難雜症的文章；標題清晰扼要，內容圖文並茂。使用者通常能在三個步驟內找到自己想要看的文章。</p>
+
+<p>除此之外，利用評分系統讓使用者反應文件的品質、使用 Google Analytics 分析使用者在網站上的行為；這些指標都成為了改善網站內容的依據。</p>
+
+<p>於是，這個網站就成為了客服的第一道的防線。就算使用者沒有看到，也能引導有疑問的使用者來閱讀這些資訊。</p>
+
+<p><strong>2. 團隊良好的習慣</strong></p>
+
+<p>客服每個禮拜整理問題，一旦有 bug，或是不斷地被提出的 issue 與 feature request，團隊每個人都會知道。有了來自使用者的回饋，團隊就有施力點來改善服務。開發團隊維持著一定的 release cycle，每個月都至少有一次 release，因此問題不會石沉大海，也不會每次更新都要等個一年半載。</p>
+
+<p>新的 release 一旦上線，客服又會繼續收集資訊，周而復始，一個會不斷地改善自己的服務就這樣形成了。有了這樣子的團隊和產品品質，客服的負擔自然也降低了許多。</p>
+
+<hr>
+
+<p>但是，追根究底，一個團隊能夠這樣子運作，究竟是怎麼做到的 ? 我想起了過去同樣在 Fog Creek Blog 上看到的一篇文章：<a href="http://blog.fogcreek.com/scaling-customer-service-by-fixing-things-twice/">Scaling Customer Service by Fixing Things Twice</a></p>
+
+<h1>
+<a id="user-content-fix-things-twice" class="anchor" href="#fix-things-twice" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix things twice</h1>
+
+<p>他們是這樣定義的：</p>
+
+<blockquote>
+<p>When a customer has a problem, don’t simply resolve their issue and move on – but rather take advantage of the issue to resolve its underlying cause. This is Fixing Things Twice.</p>
+</blockquote>
+
+<p>簡單來說就是：</p>
+
+<ul>
+<li>解決當下問題</li>
+<li>防止問題再度出現</li>
+</ul>
+
+<p>在我看來，這就是一個客服可以撐起四百萬個會員的主要原因。只解決浮出水面上的問題，一天能處理再多的客訴都沒有用。也許回答一個問題只需要五分鐘，但是花三個小時寫一篇文章在 help 網站在可以減少問題出現的次數。也許修一個 bug 只需要改一行程式，但是花一個小時把測試補齊可以讓這個問題不會再以別的形態出現在系統內。一旦持續的用這種態度來做事，自然而然團隊就會有更多的資源可以投入其他地方。</p>
+
+<p>追本溯源，找出問題產生的原因，才能夠真正解決問題。</p>
+</div>
+</div>
+
+    </div>
+  </body>
+</html>

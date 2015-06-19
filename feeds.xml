@@ -7,6 +7,16 @@
     
       
         <item>
+          <title>Fix things twice</title>
+          <description>&lt;a href=&#34;http://blog.fogcreek.com/four-million-to-one/&#34;&gt;Four Million to One (Or How I Handle Trello Support)&lt;/a&gt; ...</description>
+          <pubDate>Mon, 01 Jun 2015 00:00:00 UTC</pubDate>
+          <link>http://blog.rangilin.idv.tw/fix-things-twice/?utm_source=rss&amp;utm_medium=rss_link&amp;utm_champion=rss</link>
+          <guid isPermaLink="true">http://blog.rangilin.idv.tw/fix-things-twice/</guid>
+        </item>
+      
+    
+      
+        <item>
           <title>Go - database/sql package 簡介</title>
           <description>用 Go 寫程式，要對 SQL 資料庫存取時，就需要依賴 &lt;code&gt;database/sql&lt;/code&gt; 這個 package。這篇文章將針對這個 package 裡的 API 做介紹，順便加深自己的印象。 ...</description>
           <pubDate>Sat, 23 May 2015 00:00:00 UTC</pubDate>
